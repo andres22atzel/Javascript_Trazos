@@ -27,16 +27,19 @@ sorteo.addEventListener("click",function(){
             randomNumber = Math.trunc( ((tamNombres-10)+1) + (Math.random())*tamNombres );
         }
         if(contador < cantidadRandom){
-            nombres[randomNumber-1].classList.add('possibleWinner');
+            setTimeout(function(){
+                nombres[randomNumber-1].classList.add('possibleWinner');
+            },80);
+            // nombres[randomNumber-1].classList.add('possibleWinner');
             setTimeout(function(){
                 clean(nombres);
-            },800);
+            },500);
             contador++;
         }else{
             nombres[randomNumber-1].classList.add('winner');
             clearInterval(temporizador);
         }
-    },850);
+    },550);
     console.log(randomNumber);
 });
 

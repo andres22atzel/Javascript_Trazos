@@ -1,0 +1,170 @@
+*{padding:0;margin:0;outline:0;border:0;box-sizing:border-box;}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    font-size: 16px;
+}
+
+.launch{
+    background-color:#00AEE5;
+    padding: 1rem;
+    margin-left: 2rem;
+    font-size: 1rem;
+    cursor:pointer;
+}
+
+body > h1{
+    font-family: 'Oswald', sans-serif;
+    margin: 1em;
+}
+
+.modal{
+    background-color: white;
+    position: absolute;
+    left:25%;
+    width:50%;
+    font-size: 1em;
+    padding: 30px;
+}
+
+.overlay{
+    background-color: gray;
+    width:100%;
+    height:100vh;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.overlayShow{
+    opacity:.55;
+    transition: all 1s ease-in-out;
+    z-index:10;
+}
+
+.overlayHide{
+    opacity:0;
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.hide{
+    top:10%;
+    opacity: 0;
+    transition: all .4s ease-in-out;
+}
+
+.show{
+    top:30%;
+    opacity: 1;
+    transition: all .7s ease-in-out;
+    z-index:100;
+}
+
+.modal > h1{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.modal > p{
+    margin: 2rem 0;
+}
+
+.modal > hr{
+    width:100%;
+    height: 1px;
+    background-color:lightgray;
+}
+
+.flex{
+    display:flex;
+    justify-content: space-between;
+    width:13rem;
+    margin-left:auto;
+}
+
+.btnCancelar{background-color:#515052;}
+.btnAceptar{background-color:#1B4CE5;}
+
+.btnAceptar, .btnCancelar{
+    color:white;
+    padding:10px 20px;
+    border-radius: 5px;
+    margin-top:1.2rem;
+    font-size: .8rem;
+    cursor:pointer;
+}
+
+.btnClose{
+    width: 1rem;
+    display:block;
+    margin-left:auto;
+}
+
+.btnClose img{
+    width: 1rem;
+    height:1rem;
+}
+
+/**** CSS CONVERSOR  *********/
+
+main{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+}
+
+main > div{
+    border: 1px solid gray;
+    width:30%;
+    height: 300px;
+    text-align:center;
+    margin: 3px;
+}
+
+.datos{
+    display:inline-block;
+    margin: 1.5rem;
+}
+
+#euros, #conversor{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+}
+
+input[name="euro"]{
+    border:1px solid gray;
+    width: 6rem;
+    height: 25px;
+    font-size: 1rem;
+    overflow-y:hidden;
+    text-align:center;
+}
+
+#euros button{
+    background-color:#1B4CE5;
+    color:white;
+    font-size: .9rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.monedas{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 1.5rem;
+}
+
+.monedas p{
+    border: 1px solid gray;
+    padding:.4rem;
+}
+
+.etiqueta{
+    text-align:left;
+}

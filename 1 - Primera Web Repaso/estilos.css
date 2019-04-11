@@ -1,0 +1,42 @@
+#principal{
+	display:flex;
+	height: 50vh;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	background-color:lightblue;
+}
+
+
+div.green{
+	background-color: lightgreen;
+	flex-grow: 3;
+	align-self:flex-end;
+	order:1;
+	animation-name: appearElement;
+	animation-duration: 2s;
+}
+
+.columna{
+	background-color:coral;
+	height: 150px;
+	width:150px;
+	margin:2px;
+	flex-grow:1;
+}
+
+@keyframes appearElement{
+	0%{
+		opacity: 0;
+	}
+	30%{
+		opacity:0.8;
+	}
+	50%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}

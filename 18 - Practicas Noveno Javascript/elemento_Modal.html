@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Elemento modal</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+</head>
+<body>
+    <div id="over" class="overlay overlayHide"></div>
+    <h1>Has Click para ver el efecto</h1>
+    <button onclick="aparecer()" class="launch">Launch demo modal</button>
+    <div id="message" class="modal hide">
+        <a class="btnClose" href="#" onclick="aparecer()"><img src="img/times-solid.svg" alt=""></a>
+        <h1>Modal title</h1>
+        <hr>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint officiis facilis inventore ipsum deserunt odio fugiat vel, aspernatur totam placeat ipsa repudiandae tempora nemo ut iure eaque, quia eos perferendis.</p>
+        <hr>
+        <div class="flex">
+            <button onclick="aparecer()" class="btnCancelar">Close</button>
+            <button id="btnAccess"  class="btnAceptar">Save changes</button>
+        </div>
+        
+    </div>
+    <script src="javascript.js"></script>
+</body>
+</html>

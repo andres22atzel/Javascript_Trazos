@@ -1,0 +1,135 @@
+*{margin:0;padding:0;border:0;outline:0;box-sizing:border-box;}
+
+body{
+    font-family:"roboto";
+    font-size: 16px;
+}
+
+main{
+    background-color:#F5E768;
+    margin-top:5%;
+    height: 400px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+
+main > h1{
+    margin: 1rem 0;
+    text-transform: uppercase;
+}
+
+.numContainer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.numBlock{
+    width: 20%;
+    text-align: center;
+}
+
+.numBlock .numeroCompleto{
+    font-size: 3rem;
+}
+
+.numBlock > p > span{
+    font-size: 5rem;
+}
+
+.numBlock > p{
+    font-size: .9rem;
+}
+
+
+/***        Cronometro         ***/
+
+.clockContainer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+    font-size: 3rem;
+}
+
+.clockContainer p~p::before{
+    content:":";
+    padding:2rem;
+}
+
+.buttonsContainer{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+}
+
+button{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:#3542E8;
+    color: white;
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color:#35A0E8;
+}
+
+img{
+    width:1rem;
+    margin-left: .5rem;
+}
+.saveTimes{
+    margin-top: 2rem;
+}
+.special{
+    font-size: 1.7rem;
+    margin:0;
+}
+
+.special p{
+    padding: 0.5rem 1rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.special img{
+    visibility: hidden;
+    width: 1.3rem;
+    margin-left: 1.3rem;
+}
+
+.disabled{
+    background-color:gray;
+    cursor: auto;
+}
+
+.disabled:hover{
+    background-color:gray;
+}
+
+.saveTimes p:hover{
+    background-color:#B7BBBD;
+    color:#fff;
+    /* padding:2rem; */
+}
+
+.saveTimes p:hover img{
+    visibility: visible;
+    cursor: pointer;
+}
+
+.hide{
+    display:none;
+}

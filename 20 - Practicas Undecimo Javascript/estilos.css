@@ -1,0 +1,97 @@
+/*ver animation-fill-mode:forwards;*/
+
+*{margin:0;padding:0;border:0;outline:0;box-sizing:border-box;}
+
+body{
+    font-family:"roboto";
+    font-size: 16px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1{
+    margin: 2rem;
+}
+
+input, label{
+    display:block;
+}
+
+input{
+    border: 1px solid black;
+    border-radius: 3px;
+    width:20%;
+    height: 1.5rem;
+    text-align:center;
+    font-size: .9rem;
+}
+
+input ~ label{
+    margin-top: 1rem;
+}
+
+#alumnoCard{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width:90%;
+}
+
+button{
+    background-color:aquamarine;
+    width: 6rem;
+    height: 2rem;
+    margin: 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: skyblue;
+}
+
+h2{
+    font-size: 0.8rem;
+    color:gray;
+    padding: 0.2rem .5rem 0.1rem .5rem;
+}
+
+.card{
+    border:1px solid lightgray;
+    border-radius:5px;
+    padding: 1.5rem .5rem;
+    margin: .5rem 1rem 2rem 1rem;
+    font-size:1.5rem;
+    width:280px;
+    height:150px;
+}
+
+.card p{
+    padding: 0.1rem .5rem;
+}
+
+.hide{
+    display:none;
+}
+
+.botones{
+    display:flex;
+}
+
+button.insertar:hover{
+    background-color:crimson;
+    color:white;
+}
+
+button.insertar{
+    background-color:lightcoral;
+    color:black;
+}

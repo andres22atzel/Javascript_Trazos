@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Segundo Problema</title>
+    <style>
+        .show{
+            display:block;
+        }
+
+        .hide{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="inicio" class="show">
+        <label for="nombre">Introduce tu nombre:</label>
+        <input class="clear" type="text" name="nombre" id="nombre">
+        <br>
+        <button onclick="mostrar(1);">Empezar preguntas</button>
+    </div>
+    
+    <div id="firstQuestion" class="hide">
+        <p>Como primera pregunta <span id="name"></span> responde:</p>
+        <label>¿Cuál es la capital de España?:</label>
+        <input type="text" id="first">
+        <button onclick="preguntas(1);">Verificar</button>
+        <div id="respuesta" class="clear"></div>
+        <button id="siguiente" class="hide" onclick="mostrar(2)">Siguiente Pregunta</button>
+    </div>
+
+    <div id="secondQuestion" class="hide">
+        <p>Como segunda pregunta <span id="name"></span> responde:</p>
+        <label>¿Cuanto es 12 x 12?:</label>
+        <input type="text" id="second">
+        <button onclick="preguntas(2);">Verificar</button>
+        <div id="respuesta"></div>
+        <button id="siguiente" class="hide" onclick="mostrar(3)">Siguiente Pregunta</button>
+    </div>
+
+    <div id="thirdQuestion" class="hide">
+        <p>Como tercera pregunta <span id="name"></span> responde:</p>
+        <label>¿Cuanto día es hoy?:</label>
+        <input type="text" id="third">
+        <button onclick="preguntas(3);">Verificar</button>
+        <div id="respuesta"></div>
+        <button id="siguiente" class="hide" onclick="mostrar(0)">Ir al inicio</button>
+    </div>
+
+    
+
+    <script src="javascript.js" type="text/javascript"></script>
+</body>
+</html>

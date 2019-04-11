@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cronometro</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="clockContainer">
+        <p id="horas"></p>
+        <p id="minutos"></p>
+        <p id="segundos"></p>
+        <p id="milisegundos"></p>
+    </div>
+    <div class="buttonsContainer">
+        <button id="start">Empezar <img src="img/play.svg" alt=""></button>
+        <button id="stop" class="disabled">Parar <img src="img/stop.svg" alt=""></button>
+        <button id="save" class="disabled">Guardar <img src="img/save.svg" alt=""></button>
+        <button id="restart" class="disabled">Reiniciar <img src="img/restart.svg" alt=""></button>
+        <button id="erase" class="disabled">Borrar <img src="img/erase.svg" alt=""></button>
+    </div>
+    <div id="tiempos" class="saveTimes"></div>
+    <script src="javascript.js"></script>
+</body>
+</html>

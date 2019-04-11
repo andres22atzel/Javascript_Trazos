@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Conversor</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <main>
+        <div id="euros">
+            <h1>Introduce la cantidad</h1>
+            <div class="datos">
+                <input type="number" name="euro" id="euro" oninput="conversorNew()">
+                <label for="euro">Euros</label>
+            </div>
+
+            <button onclick="conversorNew()">Convertir</button>
+        </div>
+        <div id="conversor">
+            <h1>Conversor</h1>
+            <div class="monedas">
+                <p id="pesetas"></p>
+                <p class="etiqueta">Pesetas</p>
+                <p id="usd"></p>
+                <p class="etiqueta">USD Americano</p>
+                <p id="yenes"></p>
+                <p class="etiqueta">Yenes Japoneses</p>           
+            </div>
+        </div>
+    </main>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

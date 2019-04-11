@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Primer problema</title>
+</head>
+<body>
+    <label for="conversor">Introduce la cantidad de Euros:</label>
+    <input type="text" name="conversor" id="conversor">
+    <br>
+    <label for="conversion">Selecciona moneda a convertir</label>
+    <br>
+    <label for="yenes">Yenes</label>
+    <input type="radio" name="conversion" id="yenes" class="moneda" value="Yenes">
+    <label for="libras">Libras</label>
+    <input type="radio" name="conversion" id="libras" class="moneda">
+    <label for="dolares">Dólares</label>
+    <input type="radio" name="conversion" id="dolares" class="moneda">
+    <label for="coronas">Coronas</label>
+    <input type="radio" name="conversion" id="coronas" class="moneda">
+    <br>
+    <button onclick="conversor()">Convertir</button>
+    <div id="resultado"></div>
+
+    <script src="javascript.js" type="text/javascript"></script>
+</body>
+</html>

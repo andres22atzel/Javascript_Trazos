@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>Hola Mundo JS</h1>
+    <div></div>
+    <!-- El siguiente script tiene javascript incrustrado directamente en la funcion onclick del button -->
+    <!-- <button onclick="alert('Hola Mundo');">Saludar</button> -->
+
+    <!-- El siguiente script tiene javascript para ejecutarse por referencia -->
+    <button onclick="saluda()">Saludar</button>
+
+    <div id="resultados"></div>
+
+    <div id="finResultado">Fin de los resultados</div>
+
+    <script type="text/javascript">
+        console.log("Ya soy programador js");
+    </script>
+    <!-- El siguiente script hace la peticion del archivo javascript para que este se ejecute -->
+    <script type="text/javascript" src="javascript.js"></script>
+</body>
+</html>
+
+
+<!--
+1. En este programa vamos a ver como poner javascript en el mismo html o haciendo referencia a un archivo JS.
+2. No es recomendable poner el javascript en el head del html.
+3. El javascript es sencible a mayusculas.
+4. Se utiliza el punto en ves de la coma numerica.
+
+-->

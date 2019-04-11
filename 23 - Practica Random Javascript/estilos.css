@@ -99,3 +99,8 @@ input{
     background-color:lightgray;
     transition:all .3s ease-in-out;
 }
+
+.disabled{
+    visibility: hidden;
+}
+

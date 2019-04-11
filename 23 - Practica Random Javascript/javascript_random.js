@@ -2,7 +2,7 @@ var agregar = document.querySelector("#agregar");
 var sorteo = document.querySelector("#sorteo");
 let nameContainer = document.querySelector("#nameContainer");
 let temporizador;
-
+let flag = 0;
 
 agregar.addEventListener("click",function(){
     let nombre = document.querySelector("#nombre").value;
@@ -11,6 +11,10 @@ agregar.addEventListener("click",function(){
     pTag.classList.add('flex_row');
     pTag.innerHTML = nombre;
     nameContainer.appendChild(pTag);
+    flag++;
+    if(flag > 1){
+        sorteo.classList.remove('disabled');
+    }
 });
 
 sorteo.addEventListener("click",function(){

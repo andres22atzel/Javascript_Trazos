@@ -44,7 +44,6 @@ sorteo.addEventListener("click",function(){
             clearInterval(temporizador);
         }
     },550);
-    console.log(randomNumber);
 });
 
 
@@ -62,3 +61,5 @@ function clean(item){
 //         console.log('count ', k);
 //     }, 3000 * (k + 1));
 // }
+
+

@@ -163,11 +163,31 @@ function enabled(item,boolean){
 };
 
 
-var random = Math.random();
+// var random = Math.random();
 
-//Aleatorio entre 0-10
-console.log(Math.trunc(random*10));
-//Aleatorio entre 10-20
-console.log(Math.trunc(10+(random*10)));
-//Aleatorio entre 7-15
-console.log(Math.trunc(7+(random*8)));
+// //Aleatorio entre 0-10
+// console.log(Math.trunc(random*10));
+// //Aleatorio entre 10-20
+// console.log(Math.trunc(10+(random*10)));
+// //Aleatorio entre 7-15
+// console.log(Math.trunc(7+(random*8)));
+
+
+
+//clock
+
+function centro(){
+    let elementoCentro = document.querySelector('.hour-hand').getBoundingClientRect();
+    let elementoCentroAnchura= elementoCentro.height;
+    let hourHand = document.querySelector('.hour-hand div').getBoundingClientRect();
+    let hourHandAltura= hourHand.height;
+    console.log(hourHand);
+    console.log(elementoCentroAnchura);
+    console.log(hourHandAltura);
+    let centroTop = (elementoCentroAnchura - hourHandAltura)/2;
+    let centroLeft = (elementoCentroAnchura - hourHandAltura)/2;
+    document.querySelector('.hour-hand div').style.bottom = centroTop+"px";
+    console.log(document.querySelector('.hour-hand div').style.top = centroTop+"px");
+}
+
+centro();

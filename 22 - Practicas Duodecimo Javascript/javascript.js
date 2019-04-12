@@ -30,6 +30,7 @@ let item4 = document.querySelector('#horas');
 let temp;
 let timer = [];
 let last;
+let grados = 0;
 
 
 zero(milisegundos,item1,1);
@@ -44,6 +45,10 @@ function crono(){
             milisegundos++;
         }else if(interval> segundos){
             milisegundos=0;
+            if(segundos >= 0){
+                grados+=6;
+                document.querySelector('.hour-hand').style.transform = `rotate(${grados}deg)`;
+            }
             segundos++;
             zero(segundos,item2,1);
             zero(milisegundos,item1,1);
@@ -176,18 +181,15 @@ function enabled(item,boolean){
 
 //clock
 
-function centro(){
-    let elementoCentro = document.querySelector('.hour-hand').getBoundingClientRect();
+function centro(item){
+    let elementoCentro = document.querySelector('.posicion-central').getBoundingClientRect();
     let elementoCentroAnchura= elementoCentro.height;
-    let hourHand = document.querySelector('.hour-hand div').getBoundingClientRect();
-    let hourHandAltura= hourHand.height;
-    console.log(hourHand);
-    console.log(elementoCentroAnchura);
-    console.log(hourHandAltura);
+    let hourHand = document.querySelector(item).getBoundingClientRect();
+    let hourHandAltura= hourHand.width;
     let centroTop = (elementoCentroAnchura - hourHandAltura)/2;
-    let centroLeft = (elementoCentroAnchura - hourHandAltura)/2;
-    document.querySelector('.hour-hand div').style.bottom = centroTop+"px";
-    console.log(document.querySelector('.hour-hand div').style.top = centroTop+"px");
+    document.querySelector(item).style.top = centroTop+"px";
 }
 
-centro();
+centro('.hour-hand');
+centro('.minute-hand');
+centro('.second-hand');

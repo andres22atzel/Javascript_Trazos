@@ -151,42 +151,36 @@ img{
     width: 1rem;
     height: 1rem;
     border-radius:50%;
-    background-color: black;
+    background-color: gray;
+    position:relative;
+    transform-origin: center; 
+    transform: rotate(-90deg);
 }
 
-.hour-hand div/*, .minute-hand div, .second-hand div*/{
+.hour-hand, .minute-hand, .second-hand{
     height:0.3rem;
     position:absolute;
-    /* left:50%; */
+    left:50%; 
+    transform-origin: left center;
+    transform: rotate(0deg);
+    margin:0;
+    padding:0;
 }
 
-.hour-hand div{
+.hour-hand{
     width:10rem;
     background-color:blue;
     z-index: 1;
-    padding:0;
-    margin:0;
 }
 
-/* .minute-hand div{
+.minute-hand{
     width:7rem;
     background-color:green;
     z-index: 2;
 }
 
-.second-hand div{
+.second-hand{
     width:9rem;
     background-color:red;
     z-index: 3
-} */
-
-.hour-hand{
-    width: 1rem;
-    height: 1rem;
-    border-radius:50%;
-    background-color: gray;
-    position:relative;
-    transform-origin: 50%  50%;
-    transform: rotate(-90deg);
-
 }

@@ -1,186 +1,193 @@
-*{margin:0;padding:0;border:0;outline:0;box-sizing:border-box;}
-
-body{
-    font-family:"roboto";
-    font-size: 16.667px;
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
 }
 
-main{
-    background-color:#F5E768;
-    margin-top:5%;
-    height: 400px;
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    justify-content: center;
+body {
+  font-family: "roboto";
+  font-size: 16.667px;
 }
 
-main > h1{
-    margin: 1rem 0;
-    text-transform: uppercase;
+main {
+  background-color: #f5e768;
+  margin-top: 5%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.numContainer{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
+main > h1 {
+  margin: 1rem 0;
+  text-transform: uppercase;
 }
 
-.numBlock{
-    width: 20%;
-    text-align: center;
+.numContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
 }
 
-.numBlock .numeroCompleto{
-    font-size: 3rem;
+.numBlock {
+  width: 20%;
+  text-align: center;
 }
 
-.numBlock > p > span{
-    font-size: 5rem;
+.numBlock .numeroCompleto {
+  font-size: 3rem;
 }
 
-.numBlock > p{
-    font-size: .9rem;
+.numBlock > p > span {
+  font-size: 5rem;
 }
 
+.numBlock > p {
+  font-size: 0.9rem;
+}
 
 /***        Cronometro         ***/
 
-.clockContainer{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem;
-    font-size: 3rem;
+.clockContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  font-size: 3rem;
 }
 
-.clockContainer p~p::before{
-    content:":";
-    padding:2rem;
+.clockContainer p ~ p::before {
+  content: ":";
+  padding: 2rem;
 }
 
-.buttonsContainer{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 50%;
-    margin: 0 auto;
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 auto;
 }
 
-button{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color:#3542E8;
-    color: white;
-    font-size: 1rem;
-    padding: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
+button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3542e8;
+  color: white;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-button:hover{
-    background-color:#35A0E8;
+button:hover {
+  background-color: #35a0e8;
 }
 
-img{
-    width:1rem;
-    margin-left: .5rem;
+img {
+  width: 1rem;
+  margin-left: 0.5rem;
 }
-.saveTimes{
-    margin-top: 2rem;
+.saveTimes {
+  margin-top: 2rem;
 }
-.special{
-    font-size: 1.7rem;
-    margin:0;
-}
-
-.special p{
-    padding: 0.5rem 1rem;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 5px;
+.special {
+  font-size: 1.7rem;
+  margin: 0;
 }
 
-.special img{
-    visibility: hidden;
-    width: 1.3rem;
-    margin-left: 1.3rem;
+.special p {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
 }
 
-.disabled{
-    background-color:gray;
-    cursor: auto;
+.special img {
+  visibility: hidden;
+  width: 1.3rem;
+  margin-left: 1.3rem;
 }
 
-.disabled:hover{
-    background-color:gray;
+.disabled {
+  background-color: gray;
+  cursor: auto;
 }
 
-.saveTimes p:hover{
-    background-color:#B7BBBD;
-    color:#fff;
-    /* padding:2rem; */
+.disabled:hover {
+  background-color: gray;
 }
 
-.saveTimes p:hover img{
-    visibility: visible;
-    cursor: pointer;
+.saveTimes p:hover {
+  background-color: #b7bbbd;
+  color: #fff;
+  /* padding:2rem; */
 }
 
-.hide{
-    display:none;
+.saveTimes p:hover img {
+  visibility: visible;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
 }
 
 /****** Clock body *********/
 
-.clock{
-    width: 20rem;
-    height: 20rem;
-    border-radius:50%;
-    border: 5px solid black;
-    margin:2rem auto;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+.clock {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  border: 5px solid black;
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.posicion-central{
-    width: 1rem;
-    height: 1rem;
-    border-radius:50%;
-    background-color: gray;
-    position:relative;
-    transform-origin: center; 
-    transform: rotate(-90deg);
+.posicion-central {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: gray;
+  position: relative;
+  transform-origin: center;
+  transform: rotate(-90deg);
 }
 
-.hour-hand, .minute-hand, .second-hand{
-    height:0.3rem;
-    position:absolute;
-    left:50%; 
-    transform-origin: left center;
-    transform: rotate(0deg);
-    margin:0;
-    padding:0;
+.hour-hand,
+.minute-hand,
+.second-hand {
+  height: 0.3rem;
+  position: absolute;
+  left: 50%;
+  transform-origin: left center;
+  transform: rotate(0deg);
+  margin: 0;
+  padding: 0;
 }
 
-.hour-hand{
-    width:10rem;
-    background-color:blue;
-    z-index: 1;
+.hour-hand {
+  width: 10rem;
+  background-color: blue;
+  z-index: 1;
 }
 
-.minute-hand{
-    width:7rem;
-    background-color:green;
-    z-index: 2;
+.minute-hand {
+  width: 7rem;
+  background-color: green;
+  z-index: 2;
 }
 
-.second-hand{
-    width:9rem;
-    background-color:red;
-    z-index: 3
+.second-hand {
+  width: 9rem;
+  background-color: red;
+  z-index: 3;
 }

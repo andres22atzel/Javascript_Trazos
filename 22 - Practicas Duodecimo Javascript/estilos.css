@@ -176,11 +176,11 @@ img{
 .minute-hand{
     width:7rem;
     background-color:green;
-    z-index: 2;
+    z-index: 10;
 }
 
 .second-hand{
     width:9rem;
     background-color:red;
-    z-index: 3
+    z-index: 100;
 }

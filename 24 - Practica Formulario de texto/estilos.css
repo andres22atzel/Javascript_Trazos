@@ -1,0 +1,64 @@
+*{margin:0;padding:0;border:0;outline:0;box-sizing:border-box;}
+
+body{
+    font-family:'roboto';
+    font-size:16px;
+}
+
+main{
+    width: 50%;
+    margin: 5rem auto;
+}
+
+label, input, textarea{
+    display:block;
+    width: 100%;
+    font-size:1rem;
+}
+
+input, textarea{
+    border: 2px solid gray;
+    border-radius:3px;
+    height: 2rem;
+}
+
+label~input, label~textarea{
+    margin-top:.5rem;
+}
+
+textarea{
+    height: 5rem;
+}
+
+label{
+    margin-top: 1rem;
+}
+
+p{
+    margin:.5rem;
+}
+
+button{
+    border-radius:3px;
+    padding:.6rem .9rem;
+    font-size: 1rem;
+    margin:.5rem;
+    cursor:pointer;
+}
+
+.uppercase{
+    background-color:#07ABB0;
+}
+
+.uppercase:hover{
+    background-color:#02C796;
+}
+
+.lowercase{
+    background-color:#002CBA;
+    color: white;
+}
+
+.lowercase:hover{
+    background-color:#0A99C7;
+}

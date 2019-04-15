@@ -39,16 +39,15 @@ zero(minutos,item3,1);
 zero(horas,item4,1);
 
 function crono(){
+    let gradosMinutos=0;
     temp=(setInterval(function(){
         if(intervalMilisegundos> milisegundos){
             zero(milisegundos,item1,1)
             milisegundos++;
         }else if(interval> segundos){
             milisegundos=0;
-            if(segundos >= 0){
-                grados+=6;
-                document.querySelector('.hour-hand').style.transform = `rotate(${grados}deg)`;
-            }
+            grados+=6;
+            document.querySelector('.second-hand').style.transform = `rotate(${grados}deg)`;
             segundos++;
             zero(segundos,item2,1);
             zero(milisegundos,item1,1);
@@ -56,6 +55,10 @@ function crono(){
             milisegundos=0;
             segundos=0;
             minutos++;
+            grados=0;
+            document.querySelector('.second-hand').style.transform = `rotate(${grados}deg)`;
+            gradosMinutos+=6;
+            document.querySelector('.minute-hand').style.transform = `rotate(${grados}deg)`;
             zero(minutos,item3,1);
             zero(segundos,item2,1);
             zero(milisegundos,item1,1);
@@ -64,6 +67,8 @@ function crono(){
             segundos=0;
             minutos=0;
             horas++;
+            gradosMinutos=0;
+            document.querySelector('.minute-hand').style.transform = `rotate(${grados}deg)`;
             zero(horas,item4,1);
             zero(minutos,item3,1);
             zero(segundos,item2,1);

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Patron Formulario DNI</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <form id="form" action="#">
+        <label for="dni">Ingresa el DNI:</label>
+        <input type="text" id="dni" required pattern="^[0-9]{9}-{0,1}[a-zA-Z]{1}">
+        <input type="submit" value="Evaluar">
+        <div id="resultado"></div>
+    </form>
+    <script src="javascript.js"></script>
+</body>
+</html>

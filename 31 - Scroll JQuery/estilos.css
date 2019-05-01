@@ -1,0 +1,10 @@
+#primerElemento{
+    height: 600px;
+    background-color:coral;
+}
+
+#segundoElemento{
+    height: 600px;
+    background-color:lightblue;
+    margin-top:50px;
+}

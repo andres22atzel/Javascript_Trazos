@@ -95,3 +95,8 @@ button.insertar{
     background-color:lightcoral;
     color:black;
 }
+
+#delete:hover{
+    background-color:crimson;
+    color:white;
+}

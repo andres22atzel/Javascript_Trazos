@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Añadir Alumno</title>
-    <link rel="stylesheet" href="estilos.css">
-</head>
-<body>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
     <main id="principal">
-        <h1>Alumnos de la clase</h1>
-        <div id="alumnoCard">
-        </div>
+      <h1>Alumnos de la clase</h1>
+      <div id="alumnoCard"></div>
+      <div id="entrada">
         <label for="nombre">Nombre</label>
-        <input type="text" name="alumno" id="nombre">
+        <input type="text" name="alumno" id="nombre" />
         <label for="nombre">Apellido</label>
-        <input type="text" name="alumno" id="apellido">
+        <input type="text" name="alumno" id="apellido" />
         <label for="birth">Año de Nacimiento</label>
-        <input type="text" name="alumno" id="birth" placeholder="mm/dd/yyyy">
+        <input type="text" name="alumno" id="birth" placeholder="mm/dd/yy" />
         <div class="botones">
-            <button id="insertar">Insertar</button>
-            <button id="order" class="insertar hide">Ordenar</button>
-            <button id="borrar" class="">Borrar</button>
+          <button id="insertar">Insertar</button>
+          <button id="order" class="insertar hide">Ordenar</button>
+          <button id="borrar" class="hide">Borrar</button>
         </div>
+      </div>
     </main>
     <script src="javascript.js"></script>
-</body>
+  </body>
 </html>

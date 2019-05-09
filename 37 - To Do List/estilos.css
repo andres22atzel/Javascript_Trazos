@@ -1,0 +1,86 @@
+*{margin:0;padding:0;border:0;outline:0;box-sizing:border-box}
+
+body{
+    font-family:"roboto";
+    font-size:16px;
+}
+
+h1{
+    font-size: 1.5rem;
+    margin:1.5rem 1.5rem 1rem 1.5rem;
+}
+
+#activityInputContainer{
+    background-color: #2A5CE8;
+    width:100%;
+    height:10vh;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+}
+
+#activityInput{
+    width:97%;
+    height:3rem;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    position: relative;
+}
+
+#activity{ /*input*/
+    border-radius: 8px 30px 30px 8px;
+    width:100%;
+    height:100%;
+    font-size: 1.5rem;
+    padding-left:1rem;
+    background-color:#2E9CFF;
+    color:white;
+}
+
+input::placeholder{
+    color:white;
+    font-size: 1.3rem;
+}
+
+#addBtn{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.fa-plus{
+    font-size:1.3rem;
+}
+.fa-trash-alt, .fa-check-circle{
+    font-size:1.5rem;
+    color:black;
+}
+
+#toDoActivitiesContainer{
+    padding: 0rem 1.5rem 0rem 1.5rem;
+}
+
+.toDoActivity{
+    padding: 0rem 1rem 0rem 1rem;
+    width:100%;
+    height: 3rem;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: space-between;
+    border: 1.5px solid lightgray;
+    border-radius: 5px;
+}
+
+p{
+    font-size: 1rem;
+    font-weight:bold;
+}
+
+button~button{
+    margin-left:.3rem;
+}

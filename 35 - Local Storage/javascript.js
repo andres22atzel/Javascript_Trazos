@@ -28,3 +28,54 @@ var newArrCoches = JSON.parse(localStorage.getItem("Motos"));
 // console.log(valorCoches)
 console.log(newArrCoches)
  $("#principal").html(newArrCoches[3].marca)
+
+
+ //Clase AJAX
+let arrColores = [];
+if(localStorage.getItem("colores") != null){
+    let jsonArrColores = localStorage.getItem("colores");
+    arrColores = JSON.parse(jsonArrColores);
+}
+// for(let i = 0; i<arrColores.length;i++){
+//     addColor();
+// }
+pintarTodosLosColores();
+function pintarTodosLosColores(){
+    if(arrColores != null){
+    for(let i = 0; i < arrColores.length; i++){
+        let divHijoJQ = $("<div></div>");
+        divHijoJQ.addClass("hijoColor");
+        divHijoJQ.text(arrColores[i]);
+        divHijoJQ.css({
+            "color":arrColores[i]
+        });
+        $("#gridColores").append(divHijoJQ);
+    }
+    }
+};
+
+ $("#btnAdd").on({
+     click:function(){
+        addColor();
+        actualizarLocalStorage();
+     }
+ });
+
+ function addColor(){
+     let colorValue = $("#color").val();
+     arrColores.push(colorValue);
+     console.log(arrColores);
+     let divHijoJQ = $("<div></div>");
+     divHijoJQ.addClass("hijoColor");
+     divHijoJQ.text(colorValue);
+     divHijoJQ.css({
+         "color":colorValue
+     });
+
+     $("#gridColores").append(divHijoJQ);
+ };
+
+ function actualizarLocalStorage(){
+    let jsonArrColores = JSON.stringify(arrColores);
+    localStorage.setItem("colores",jsonArrColores);
+ }; 

@@ -35,15 +35,21 @@ insertar.addEventListener("click", function() {
   let nombre = document.querySelector("#nombre").value;
   let apellido = document.querySelector("#apellido").value;
   let birth = document.querySelector("#birth").value;
-  if(format.test(nombre)===true || format.test(apellido)===true){
-    console.log("entro");
-    // alert("Ingrese un nombre o apellido válido");
+  let popUp = document.querySelector("#popUpContainer");
+  let mensajePopUp = document.querySelector("#mensajePopUp");
+
+  if((format.test(nombre)===true || nombre.length === 0) || (format.test(apellido)===true) || apellido.length === 0){
+    popUp.classList.replace("hide","flex");
+    mensajePopUp.innerHTML="Ingrese un nombre o apellido válido";
   }else if (validarFecha() === 0) {
-    alert("Ingresar un año valido");
+    popUp.classList.replace("hide","flex");
+    mensajePopUp.innerHTML= "Ingresar un año valido";
   } else if (validarFecha() === 1) {
-    alert("Ingresar un mes valido para el año");
+    popUp.classList.replace("hide","flex");
+    mensajePopUp.innerHTML="Ingresar un mes valido para el año";
   } else if (validarFecha() === 2) {
-    alert("Ingresar un dia valido para el mes");
+    popUp.classList.replace("hide","flex");
+    mensajePopUp.innerHTML="Ingresar un dia valido para el mes";
   } else if (validarFecha() === 3 && nombre) {
     alumnos.push(new Alumno(nombre, apellido, birth));
     setAlumnosLocalStorage(alumnos);
@@ -218,3 +224,7 @@ function validarFecha() {
     return 2;
   }
 }
+
+btnPopUp.addEventListener("click",function(){
+  document.querySelector("#popUpContainer").classList.replace("flex","hide");
+});

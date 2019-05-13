@@ -39,14 +39,34 @@ $(document).ready(function() {
     let btnDone = document.createElement("button");
     let trashIcon = document.createElement("i");
     let doneIcon = document.createElement("i");
+    let btnInProcess = document.createElement("button");
+    let inProcessIcon = document.createElement("i");
+    let tooltipDelete = document.createElement("span");
+    let tooltipInProcess = document.createElement("span");
+    let tooltipDone = document.createElement("span");
+    $(tooltipDelete).addClass("tooltiptext");
+    $(tooltipDelete).text("Borrar");
+    $(tooltipInProcess).addClass("tooltiptext");
+    $(tooltipInProcess).text("En Proceso");
+    $(tooltipDone).addClass("tooltiptext");
+    $(tooltipDone).text("Completado");
     $(divElement).addClass("options");
     $(btnDelete).addClass("delete");
     $(btnDone).addClass("done");
     $(trashIcon).addClass("far fa-trash-alt");
     $(doneIcon).addClass("far fa-check-circle");
     $(btnDelete).append($(trashIcon));
+    $(btnDelete).append($(tooltipDelete));
     $(btnDone).append($(doneIcon));
+    $(btnDone).append($(tooltipDone));
     $(divElement).append($(btnDelete));
+    if(type === 1){
+      $(btnInProcess).addClass("inProcess");
+      $(inProcessIcon).addClass("fas fa-sync-alt");
+      $(btnInProcess).append($(inProcessIcon));
+      $(btnInProcess).append($(tooltipInProcess));
+      $(divElement).append($(btnInProcess));
+    }
     $(divElement).append($(btnDone));
     $(pElement).text(activity);
     $(divContainer).append($(pElement));
@@ -123,21 +143,28 @@ $(document).ready(function() {
     let selector;
     let typeSelector;
     let typeActivity;
+    let numIcon = 0;
     if (type === 1) {
       typeSelector = "toDoActivitiesContainer";
       typeActivity = toDoActivities;
+      numIcon = 3;
     } else if (type === 2) {
       typeSelector = "doneActivitiesContainer";
       typeActivity = doneActivities;
+      numIcon = 2;
     } else if (type === 3) {
         typeSelector = "inProcessActivitiesContainer";
         typeActivity = inProcessActivities;
-      }
-    for (let i = 1; i <= 2; i++) {
+        numIcon = 2;
+    }
+    for (let i = 1; i <= numIcon; i++) {
       if (i === 1) {
         selector = `#${typeSelector} .done`;
       } else if (i === 2) {
         selector = `#${typeSelector} .delete`;
+      }
+      else if (i === 3) {
+        selector = `#${typeSelector} .inProcess`;
       }
       $(selector).off("click");
       $(selector).on({
@@ -160,11 +187,13 @@ $(document).ready(function() {
           updateLocalStorage(type);
           if ($(this).hasClass("done") && type === 1) {
             //introduce to do activity a done activity
-            introduceInProcessDoneActivity(activity, 3);
+            introduceInProcessDoneActivity(activity, 2);
           } else if ($(this).hasClass("done") && type === 2) {
             introduceToDoActivity(activity);
           } else if ($(this).hasClass("done") && type === 3) {
             introduceInProcessDoneActivity(activity, 2);
+          } else if ($(this).hasClass("inProcess") && type === 1){
+            introduceInProcessDoneActivity(activity, 3);
           }
         }
       });

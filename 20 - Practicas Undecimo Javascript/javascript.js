@@ -37,7 +37,9 @@ insertar.addEventListener("click", function() {
   let birth = document.querySelector("#birth").value;
   let popUp = document.querySelector("#popUpContainer");
   let mensajePopUp = document.querySelector("#mensajePopUp");
-
+  let day;
+  let month;
+  let year;
   if((format.test(nombre)===true || nombre.length === 0) || (format.test(apellido)===true) || apellido.length === 0){
     popUp.classList.replace("hide","flex");
     mensajePopUp.innerHTML="Ingrese un nombre o apellido válido";
@@ -51,6 +53,10 @@ insertar.addEventListener("click", function() {
     popUp.classList.replace("hide","flex");
     mensajePopUp.innerHTML="Ingresar un dia valido para el mes";
   } else if (validarFecha() === 3 && nombre) {
+    month = birth.slice(3, 5);
+    day = birth.slice(0, 2);
+    year = birth.slice(6, 10);
+    birth = `${month}/${day}/${year}`;
     alumnos.push(new Alumno(nombre, apellido, birth));
     setAlumnosLocalStorage(alumnos);
     let last = alumnos.length - 1;
@@ -117,10 +123,12 @@ function addAlumnos(i) {
   pSecondElement.classList.add("edad");
   pFirstElement.innerHTML = `${alumnos[i].nombre} ${alumnos[i].apellido}`;
   pSecondElement.innerHTML = `${alumnos[i].edad}`;
+  h2Element.innerHTML = "Edad";
   divElement.appendChild(pFirstElement);
   divElement.appendChild(h2Element);
   divElement.appendChild(pSecondElement);
   alumnoCard.appendChild(divElement);
+  createDeleteEvents();
 }
 
 borrar.addEventListener("click", function() {
@@ -228,3 +236,34 @@ function validarFecha() {
 btnPopUp.addEventListener("click",function(){
   document.querySelector("#popUpContainer").classList.replace("flex","hide");
 });
+
+function createDeleteEvents(){
+  let cardContainer = document.querySelectorAll(".card");
+  for(let i = 0; i < cardContainer.length;i++){
+    cardContainer[i].addEventListener("dblclick",function(){
+      let hijos = this.children;
+      let arrNombre = hijos[0].innerHTML.split(" ");
+      let nombre = arrNombre[0];
+      let apellido = arrNombre[1];
+      let edad = hijos[2].innerHTML;
+      let student;
+      let deleteStudent = `${nombre} ${apellido} ${edad}`
+      for(let a = 0; a < alumnos.length; a++){
+        student = `${alumnos[a].nombre} ${alumnos[a].apellido} ${alumnos[a].edad}`
+        if (student === deleteStudent){
+          console.log("Esta");
+          alumnos.splice(a,1);
+          setAlumnosLocalStorage(alumnos);
+          this.remove();
+          if (alumnos.length < 2) {
+            order.classList.add("hide");
+          }
+          if (alumnos.length < 1) {
+            borrar.classList.add("hide");
+          }
+        }
+      }
+    });
+  };
+};
+

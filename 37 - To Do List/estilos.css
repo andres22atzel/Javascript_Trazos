@@ -62,7 +62,7 @@ input::placeholder{
 }
 
 
-.fa-trash-alt, .fa-check-circle{
+.fa-trash-alt, .fa-check-circle, .fa-sync-alt{
     font-size:1.5rem;
     color:black;
     cursor: pointer;
@@ -75,11 +75,63 @@ input::placeholder{
     color:green;
 }
 
+.fa-sync-alt:hover{
+    color:orange;
+}
+
 .doneActivity .fa-check-circle{
     color:green;
 }
 
-.delete, .done{
+.delete, .inProcess, .done{
+    position: relative;
+}
+
+.delete .tooltiptext, .inProcess .tooltiptext, .done .tooltiptext {
+    visibility: visible;
+    width: 4.5rem;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    bottom: 140%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.delete .tooltiptext{
+    left: -125%;
+}
+
+.inProcess .tooltiptext{
+    left: -105%;
+}
+
+
+.done .tooltiptext{
+    left: -104%;
+}
+
+.delete:hover .tooltiptext, .inProcess:hover .tooltiptext, .done:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+.delete .tooltiptext::after, .inProcess .tooltiptext::after, .done .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+
+.delete, .done, .inProcess{
     background-color:inherit;
 }
 
@@ -106,19 +158,11 @@ input::placeholder{
     border-radius: 5px;
 }
 
-/* .toDoActivity:hover,.doneActivity:hover{
-    background-color: lightgrey;
-} */
-
 p{
     font-size: 1rem;
     font-weight:bold;
     color: #626780;
 }
-
-/* .done{
-    margin-left:.3rem;
-} */
 
 #doneActivitiesContainer p{
     text-decoration-line: line-through;
@@ -131,7 +175,17 @@ p{
     justify-content: space-between;
 }
 
+.toDoActivity .options{
+    width:5.4rem;
+}
+
 .toDoActivity ~ .toDoActivity{
     margin-top: .3rem;
 }
 
+hr{
+    width: 100%;
+    height: 2px;
+    background-color:black;
+    margin-top: 1rem;
+}

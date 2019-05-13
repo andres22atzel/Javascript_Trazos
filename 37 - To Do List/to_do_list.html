@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>To Do List</title>
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-</head>
-<body>
+    <link rel="stylesheet" href="estilos.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
     <div id="activityInputContainer">
-        <div id="activityInput">
-            <input type="text" id="activity" placeholder="Introducir una actividad">
-            <button id="addBtn"><i class="fas fa-plus"></i></button>
-        </div>
+      <div id="activityInput">
+        <input
+          type="text"
+          id="activity"
+          placeholder="Introducir una actividad"
+        />
+        <button id="addBtn"><i class="fas fa-plus"></i></button>
+      </div>
     </div>
     <div id="toDoContainer">
-        <h1>Tareas por hacer</h1>
-        <div id="toDoActivitiesContainer">
-        </div>
+      <h1>Tareas por hacer</h1>
+      <div id="toDoActivitiesContainer"></div>
+    </div>
+    <div id="inProcessContainer">
+      <h1>Tareas en proceso</h1>
+      <div id="inProcessActivitiesContainer">
+        <!-- <div class="inProcessActivity flex">
+          <p>PRIMER PRUEBA</p>
+          <div class="options">
+            <button class="delete"><i class="far fa-trash-alt"></i></button
+            ><button class="done"><i class="far fa-check-circle"></i></button>
+          </div>
+        </div> -->
+      </div>
     </div>
     <div id="doneContainer">
-        <h1>Tareas Completadas</h1>
-        <div id="doneActivitiesContainer">
-        </div>
+      <h1>Tareas Completadas</h1>
+      <div id="doneActivitiesContainer"></div>
     </div>
     <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
     <script src="jquery.js"></script>
-</body>
+  </body>
 </html>

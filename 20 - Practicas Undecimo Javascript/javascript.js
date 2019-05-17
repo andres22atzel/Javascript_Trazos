@@ -240,30 +240,37 @@ btnPopUp.addEventListener("click",function(){
 function createDeleteEvents(){
   let cardContainer = document.querySelectorAll(".card");
   for(let i = 0; i < cardContainer.length;i++){
+    cardContainer[i].removeEventListener("dblclick",function(){
+      deleteEvents(this);
+    });
     cardContainer[i].addEventListener("dblclick",function(){
-      let hijos = this.children;
-      let arrNombre = hijos[0].innerHTML.split(" ");
-      let nombre = arrNombre[0];
-      let apellido = arrNombre[1];
-      let edad = hijos[2].innerHTML;
-      let student;
-      let deleteStudent = `${nombre} ${apellido} ${edad}`
-      for(let a = 0; a < alumnos.length; a++){
-        student = `${alumnos[a].nombre} ${alumnos[a].apellido} ${alumnos[a].edad}`
-        if (student === deleteStudent){
-          console.log("Esta");
-          alumnos.splice(a,1);
-          setAlumnosLocalStorage(alumnos);
-          this.remove();
-          if (alumnos.length < 2) {
-            order.classList.add("hide");
-          }
-          if (alumnos.length < 1) {
-            borrar.classList.add("hide");
-          }
-        }
-      }
+      deleteEvents(this);
     });
   };
+};
+
+function deleteEvents(element){
+  let hijos = element.children;
+  let arrNombre = hijos[0].innerHTML.split(" ");
+  let nombre = arrNombre[0];
+  let apellido = arrNombre[1];
+  let edad = hijos[2].innerHTML;
+  let student;
+  let deleteStudent = `${nombre} ${apellido} ${edad}`
+  for(let a = 0; a < alumnos.length; a++){
+    student = `${alumnos[a].nombre} ${alumnos[a].apellido} ${alumnos[a].edad}`
+    if (student === deleteStudent){
+      console.log("Esta");
+      alumnos.splice(a,1);
+      setAlumnosLocalStorage(alumnos);
+      element.remove();
+      if (alumnos.length < 2) {
+        order.classList.add("hide");
+      }
+      if (alumnos.length < 1) {
+        borrar.classList.add("hide");
+      }
+    }
+  }
 };
 

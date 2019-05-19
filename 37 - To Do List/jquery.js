@@ -61,7 +61,7 @@ $(document).ready(function() {
     $(btnDone).append($(doneIcon));
     $(btnDone).append($(tooltipDone));
     $(divElement).append($(btnDelete));
-    if(type === 1){
+    if (type === 1) {
       $(btnInProcess).addClass("inProcess");
       $(inProcessIcon).addClass("fas fa-sync-alt");
       $(btnInProcess).append($(inProcessIcon));
@@ -121,15 +121,11 @@ $(document).ready(function() {
     localStorage.setItem("toDoActivities", JSON.stringify(toDoActivities));
     displayActivity(1, activityToDo);
     createToDoActivitiesBtnsEvent(1);
-    console.log("entro todo")
-    console.log(activityToDo);
   }
 
   function introduceInProcessDoneActivity(activityInDone, type) {
     let activities;
     let activitiesName;
-    console.log("entro inprocessdone")
-    console.log(activityInDone);
     if (type === 2) {
       activities = doneActivities;
       activitiesName = "doneActivities";
@@ -145,7 +141,7 @@ $(document).ready(function() {
       displayActivity(type, activityInDone);
       createToDoActivitiesBtnsEvent(type);
     }
-  };
+  }
 
   function createToDoActivitiesBtnsEvent(type) {
     let selector;
@@ -161,17 +157,16 @@ $(document).ready(function() {
       typeActivity = doneActivities;
       numIcon = 2;
     } else if (type === 3) {
-        typeSelector = "inProcessActivitiesContainer";
-        typeActivity = inProcessActivities;
-        numIcon = 2;
+      typeSelector = "inProcessActivitiesContainer";
+      typeActivity = inProcessActivities;
+      numIcon = 2;
     }
     for (let i = 1; i <= numIcon; i++) {
       if (i === 1) {
         selector = `#${typeSelector} .done`;
       } else if (i === 2) {
         selector = `#${typeSelector} .delete`;
-      }
-      else if (i === 3) {
+      } else if (i === 3) {
         selector = `#${typeSelector} .inProcess`;
       }
       $(selector).off("click");
@@ -181,49 +176,60 @@ $(document).ready(function() {
             .parent()
             .siblings()
             .text();
-          moveActivity($(this),typeActivity,type);
+          moveActivity($(this), typeActivity, type, "click");
           if ($(this).hasClass("done") && type === 1) {
             //introduce to do activity a done activity
             introduceInProcessDoneActivity(activity, 2);
+            createDraggableEvents(2);
           } else if ($(this).hasClass("done") && type === 2) {
             introduceToDoActivity(activity);
+            createDraggableEvents(1);
           } else if ($(this).hasClass("done") && type === 3) {
             introduceInProcessDoneActivity(activity, 2);
-          } else if ($(this).hasClass("inProcess") && type === 1){
+            createDraggableEvents(2);
+          } else if ($(this).hasClass("inProcess") && type === 1) {
             introduceInProcessDoneActivity(activity, 3);
+            createDraggableEvents(3);
           }
         }
       });
     }
-  };
+  }
 
-  function moveActivity(activityObject, typeActivity, type){
+  function moveActivity(activityObject, typeActivity, type, event) {
     let activity = $(activityObject)
-    .parent()
-    .siblings()
-    .text();
-    let uiParent = $(activityObject).parent().attr("id");
+      .parent()
+      .siblings()
+      .text();
+    let uiParent = $(activityObject)
+      .parent()
+      .attr("id");
     let removeIndexValue = 0;
-          //eliminar to do activity del DOM
-          $(activityObject)
-            .parent()
-            .parent()
-            .remove();
-          removeIndexValue = typeActivity.findIndex(function(element) {
-            return element.activity === activity;
-          });
-          //eliminar to do activity del arreglo de actividades
-          typeActivity.splice(removeIndexValue, 1);
-          console.log(typeActivity);
-          if(uiParent === "toDoActivitiesContainer"){
-            toDoActivities = typeActivity;
-          }else if(uiParent === "inProcessActivitiesContainer"){
-            inProcessActivities = typeActivity;
-          }else if(uiParent === "doneActivitiesContainer"){
-            doneActivities = typeActivity;
-          }
-          updateLocalStorage(type);
-  };
+    //eliminar to do activity del DOM
+    if (event === "click") {
+      $(activityObject)
+        .parent()
+        .parent()
+        .remove();
+    } else if (event === "drag") {
+      activity = $(activityObject).text();
+      $(activityObject).parent().remove();
+    }
+
+    removeIndexValue = typeActivity.findIndex(function(element) {
+      return element.activity === activity;
+    });
+    //eliminar to do activity del arreglo de actividades
+    typeActivity.splice(removeIndexValue, 1);
+    if (uiParent === "toDoActivitiesContainer") {
+      toDoActivities = typeActivity;
+    } else if (uiParent === "inProcessActivitiesContainer") {
+      inProcessActivities = typeActivity;
+    } else if (uiParent === "doneActivitiesContainer") {
+      doneActivities = typeActivity;
+    }
+    updateLocalStorage(type);
+  }
 
   function updateLocalStorage(type) {
     if (type === 1)
@@ -231,20 +237,23 @@ $(document).ready(function() {
     else if (type === 2)
       localStorage.setItem("doneActivities", JSON.stringify(doneActivities));
     else if (type === 3)
-      localStorage.setItem("inProcessActivities", JSON.stringify(inProcessActivities));
-  };
+      localStorage.setItem(
+        "inProcessActivities",
+        JSON.stringify(inProcessActivities)
+      );
+  }
 
-  function draggableObjectSearch(ui){
+  function draggableObjectSearch(ui) {
     let uiParent = ui.parent().attr("id");
     let type;
     let typeActivity;
-    if(uiParent === "toDoActivitiesContainer"){
+    if (uiParent === "toDoActivitiesContainer") {
       type = 1;
       typeActivity = toDoActivities;
-    }else if(uiParent === "inProcessActivitiesContainer"){
+    } else if (uiParent === "inProcessActivitiesContainer") {
       type = 3;
       typeActivity = inProcessActivities;
-    }else if(uiParent === "doneActivitiesContainer"){
+    } else if (uiParent === "doneActivitiesContainer") {
       type = 2;
       typeActivity = doneActivities;
     }
@@ -252,66 +261,72 @@ $(document).ready(function() {
   }
 
   $("#toDoContainer").droppable({
-    drop:function(event,ui){
+    drop: function(event, ui) {
       let selfType = 1;
-      let arrangeParent = ui.draggable.children();
-      let searchResult = draggableObjectSearch(ui.draggable);
-      moveActivity(arrangeParent[1],searchResult[1],searchResult[0]);
-      introduceToDoActivity($(arrangeParent[0]).text());
-      createDraggableEvents(searchResult[0]);
-      createDraggableEvents(selfType);
+      drop(ui.draggable, selfType, "drag");
+    },
+    accept: function(d) {
+      let clase = d.attr("class").split(" ")[0];
+      if (clase != "toDoActivity") return true;
     }
   });
 
   $("#inProcessContainer").droppable({
-    drop:function(event,ui){
+    drop: function(event, ui) {
       let selfType = 3;
-      let arrangeParent = ui.draggable.children();
-      let searchResult = draggableObjectSearch(ui.draggable);
-      console.log(ui.draggable);
-      console.log($(".toDoActivity"));
-      console.log($(arrangeParent[0]).text())
-      moveActivity(arrangeParent[1],searchResult[1],searchResult[0]);
-      introduceInProcessDoneActivity($(arrangeParent[0]).text(), selfType);
-      createDraggableEvents(searchResult[0]);
-      createDraggableEvents(selfType);
-      // console.log(searchResult[1]);
+      drop(ui.draggable, selfType, "drag");
+    },
+    accept: function(d) {
+      let clase = d.attr("class").split(" ")[0];
+      if (clase != "inProcessActivity") return true;
     }
   });
 
   $("#doneContainer").droppable({
-    drop:function(event,ui){
+    drop: function(event, ui) {
       let selfType = 2;
-      let arrangeParent = ui.draggable.children();
-      let searchResult = draggableObjectSearch(ui.draggable);
-      moveActivity(arrangeParent[1],searchResult[1],searchResult[0]);
-      introduceInProcessDoneActivity($(arrangeParent[0]).text(), selfType);
-      createDraggableEvents(searchResult[0]);
-      createDraggableEvents(selfType);
-
+      drop(ui.draggable, selfType, "drag");
+    },
+    accept: function(d) {
+      let clase = d.attr("class").split(" ")[0];
+      if (clase != "doneActivity") return true;
     }
   });
 
-function createDraggableEvents(type){
-  let selector;
-  if(type === 1){
-    selector = ".toDoActivity";
-  }else if(type === 3){
-    selector = ".inProcessActivity";
-  }if(type === 2){
-    selector = ".doneActivity";
+  function drop(ui, selfType, event) {
+    let arrangeParent = ui.children();
+    let searchResult = draggableObjectSearch(ui);
+    if (searchResult[0] != selfType) {
+      moveActivity(arrangeParent[1], searchResult[1], searchResult[0], event);
+      if (selfType === 1) {
+        introduceToDoActivity($(arrangeParent[0]).text(), selfType);
+      } else {
+        introduceInProcessDoneActivity($(arrangeParent[0]).text(), selfType);
+      }
+      createDraggableEvents(searchResult[0]);
+      createDraggableEvents(selfType);
+    }
   }
 
-  
-  $(selector).draggable({
-    start:function(){
-      $(this).css("z-index","10");
-      $(this).siblings().css("z-index","0")
-    },
-    axis:"y",
-    revert: 'invalid'
-  });
-}
+  function createDraggableEvents(type) {
+    let selector;
+    if (type === 1) {
+      selector = ".toDoActivity";
+    } else if (type === 3) {
+      selector = ".inProcessActivity";
+    } else if (type === 2) {
+      selector = ".doneActivity";
+    }
 
+    $(selector).draggable({
+      start: function() {
+        $(this).css("z-index", "10");
+        $(this)
+          .siblings()
+          .css("z-index", "0");
+      },
+      axis: "y",
+      revert: "invalid"
+    });
+  }
 });
-

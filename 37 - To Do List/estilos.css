@@ -7,7 +7,7 @@ body{
 
 h1{
     font-size: 1.5rem;
-    padding:1.5rem 1.5rem 1rem 1.5rem;
+    padding:1.5rem 0rem 1rem 0rem;
 }
 
 #activityInputContainer{
@@ -194,4 +194,5 @@ hr{
 #toDoContainer, #doneContainer, #inProcessContainer{
     background-color:yellow;
     height:100%;
+    margin: 0 1rem 0 1rem;
 }
